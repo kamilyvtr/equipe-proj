@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipe+ | Gestão Estratégica de Pessoas</title>
+  <link rel="shortcut icon" href="companhia.png" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2e0b5e6e1.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <!-- AOS - Animate on Scroll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <head>
+      <!-- Font Awesome CDN -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      
+      <!-- Seu CSS e outros links -->
+    </head>
+    
+    <style>
+      .contratacao {
+        background: #f0f8ff;
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+  
+      .contratacao h2 {
+        font-size: 2.5rem;
+        color: #004080;
+        margin-bottom: 1rem;
+      }
+  
+      .contratacao p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+  
+      .contratacao-formulario {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+      }
+  
+      .contratacao-formulario input, 
+      .contratacao-formulario select, 
+      .contratacao-formulario textarea {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: #333;
+      }
+  
+      .contratacao-formulario button {
+        background: linear-gradient(45deg, #004080, #00c3ff);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+  
+      .contratacao-formulario button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      }
+  
+      .error-message {
+        color: red;
+        font-size: 0.9rem;
+      }
+    </style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to right, #e6f0ff, #ffffff);
+      color: #333;
+      line-height: 1.6;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(90deg, #004080, #0080ff);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #007bff, #00c3ff);
+      color: white;
+      padding: 15px 30px;
+      display: inline-block;
+      margin: 20px auto;
+      text-align: center;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 18px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex: 1 1 280px;
+      max-width: 300px;
+      text-align: center;
+    }
+    .card h3 {
+      color: #0056b3;
+    }
+
+    .faq {
+      background: #e6f0ff;
+      border-radius: 8px;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 3rem 2rem;
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      background: linear-gradient(to right, #004080, #00c3ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    .card i {
+      font-size: 2rem;
+      background: linear-gradient(to right, #004080, #00c3ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #004080, #00c3ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    .avaliacoes {
+      background: #f0f8ff;
+      text-align: center;
+    }
+
+    .avaliacao-card {
+      display: inline-block;
+      background: white;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 250px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .stars {
+      color: gold;
+      margin-bottom: 0.5rem;
+    }
+
+    .formulario, .jovem-aprendiz, .jovem-individual {
+      background: #e6f0ff;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .jovem-aprendiz h2, .jovem-individual h2 {
+      background: linear-gradient(to right, #004080, #00c3ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 1.7rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      
+    }
+ 
+  
+    button {
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background: #0066cc;
+    }
+
+    .btn-show {
+      background: linear-gradient(to right, #004080, #00c3ff);
+      border: none;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-show:hover {
+      background: linear-gradient(to right, #003366, #0099ff);
+    }
+
+    footer {
+      background: #0056b3;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+    }
+
+    
+
+    img.responsive {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+
+    .jovem-individual {
+      display: none;
+      animation: fadeInUp 0.7s ease forwards;
+    }
+
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .marquee-h-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.marquee-h {
+  display: flex;
+  gap: 20px;
+  animation: scrollLeft 25s linear infinite;
+  width: max-content;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .avaliacao-card {
+    width: 200px;
+    font-size: 0.9rem;
+  }
+
+  .marquee-h {
+    gap: 15px;
+    animation-duration: 35s;
+  }
+}
+
+  
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="caracteristica.png" alt="Ícone da Equipe" style="width: 40px; height: 40px; margin-right: 10px;" />
+      Equipe+
+    </h1>
+    <nav>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#cadastro">Cadastro</a>
+      <a href="#jovem">Jovem Aprendiz</a>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <h2>Soluções Estratégicas em Gestão de Pessoas</h2>
+    <p>Conectamos talentos, propósito e resultados com ferramentas modernas e foco em engajamento, retenção e cultura organizacional.</p>
+    <img src="lideranca-empresarial.png" alt="Equipe trabalhando" class="responsive" />
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <i class="fas fa-users"></i>
+      <h3>Redução de Turnover</h3>
+      <p>Analisamos causas e implementamos ações para manter talentos na empresa.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-clock"></i>
+      <h3>Menos Absenteísmo</h3>
+      <p>Indicadores de presença aliados a estratégias de motivação e reconhecimento.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-star"></i>
+      <h3>Engajamento Real</h3>
+      <p>Plano de carreira, comunicação clara e clima organizacional saudável.</p>
+    </div>
+  </section>
+
+
+
+
+  <section id="jovem" class="jovem-aprendiz">
+    <h2>Área Jovem Aprendiz - Empresas</h2>
+    <p>Oportunidade para empresas que desejam investir no futuro. Oferecemos integração real ao time, mentorias e plano de desenvolvimento.</p>
+    <img src="equipe-trabalhando-juntos-no-projeto (1).jpg" class="responsive" alt="Jovem aprendiz" />
+    <div style="text-align:center;">
+      <button class="btn-show" onclick="document.querySelector('.jovem-individual').style.display='block'; this.style.display='none'">Quero Participar</button>
+    </div>
+  </section>
+
+  <section class="jovem-individual">
+    <h2>Jovem Aprendiz - Cadastro de Participante</h2>
+    <p style="text-align:center; margin-bottom: 1rem;">
+      Temos oportunidades que combinam com seu perfil! Preencha seus dados e dê o primeiro passo para fazer parte de uma equipe que acredita no seu potencial.
+    </p>
+    
+    <form id="form-jovem-aprendiz" onsubmit="return validarFormulario()">
+      <input type="text" id="nome" name="nome" placeholder="Nome Completo" required />
+      <span class="error-message" id="error-nome"></span>
+      
+      <input type="email" id="email" name="email" placeholder="E-mail" required />
+      <span class="error-message" id="error-email"></span>
+      
+      <input type="number" id="idade" name="idade" placeholder="Idade" required />
+      <span class="error-message" id="error-idade"></span>
+      
+      <input type="text" id="cidade" name="cidade" placeholder="Cidade/Estado" required />
+      <span class="error-message" id="error-cidade"></span>
+      
+      <select id="escolaridade" name="escolaridade" required>
+        <option value="">Escolha seu nível de escolaridade</option>
+        <option value="fundamental">Ensino Fundamental</option>
+        <option value="medio">Ensino Médio</option>
+        <option value="tecnico">Ensino Técnico</option>
+      </select>
+      <span class="error-message" id="error-escolaridade"></span>
+      
+      <select id="area" name="area" required>
+        <option value="">Escolha a área que deseja atuar</option>
+        <option value="rh">Recursos Humanos</option>
+        <option value="marketing">Marketing</option>
+        <option value="financas">Finanças</option>
+        <option value="tecnologia">Tecnologia da Informação</option>
+        <option value="logistica">Logística</option>
+        <option value="comercial">Comercial</option>
+      </select>
+      <span class="error-message" id="error-area"></span>
+      
+      <textarea id="descricao" name="descricao" placeholder="Conte um pouco sobre você..."></textarea>
+      <span class="error-message" id="error-descricao"></span>
+      
+      <!-- Campo de Anexo -->
+      <input type="file" id="anexo" name="anexo" accept=".pdf,.doc,.docx,.jpg,.png,.jpeg,.txt" />
+      <span class="error-message" id="error-anexo"></span>
+      
+      <!-- Campo de Agendamento -->
+      <label for="data-entrevista">Escolha a data e hora para a entrevista (opcional):</label>
+      <input type="datetime-local" id="data-entrevista" name="data-entrevista" />
+      <span class="error-message" id="error-data-entrevista"></span>
+  
+      <!-- Botão de Envio -->
+      <button type="submit">Enviar Inscrição</button>
+    </form>
+</section>
+  <section class="treinamento container">
+    <h2>Programas de <span class="destaque">Desenvolvimento</span> e <span class="destaque">Treinamento</span></h2>
+    <div class="treinamento-conteudo">
+      <div class="treinamento-item">
+        <img src="executivo-com-bracos-cruzados.jpg" alt="Mentoria para líderes">
+        <h3>Mentoria para Líderes</h3>
+        <p>Desenvolvemos <strong>líderes preparados</strong> para lidar com pessoas e resultados através de <em>mentorados personalizados</em>, baseados em suas necessidades reais.</p>
+      </div>
+      <div class="treinamento-item">
+        <img src="peter-jones-WZROBIlY8Rg-unsplash.jpg" alt="Comunicação eficaz">
+        <h3>Comunicação Eficaz</h3>
+        <p>Treinamentos com foco em <strong>clareza, escuta ativa</strong> e <em>relacionamentos interpessoais</em> para construir um ambiente colaborativo e produtivo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="parcerias container">
+    <h2>Parcerias <span class="destaque">Certificadas</span></h2>
+    <div class="parcerias-imagens">
+      <img src="Logo para consultora de moda minimalista Branco e azul claro.png" alt="Certificado 1">
+      <img src="Logotipo empresa de programação sistemas e tecnologia.png" alt="Certificado 2">
+      <img src="Indústria mercado logotipo colorido fun.png" alt="Certificado 3">
+      <img src="Logotipo engenharia construtora minimalista bege azul.png" alt="Certificado 4"> <!-- Nova Imagem -->
+      <img src="WhatsApp Image 2025-05-12 at 08.12.01.jpeg" alt="Certificado 5"> <!-- Nova Imagem -->
+
+    </div>
+  </section>
+  
+ 
+  <section class="contratacao">
+  <h2>Quer contratar nossa equipe?</h2>
+  <p>Preencha o formulário abaixo para mais informações.</p>
+
+  <div class="contratacao-formulario">
+    <form action="#">
+      <!-- Nome -->
+      <label for="nome"><i class="fas fa-user"></i> Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+
+      <!-- E-mail -->
+      <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
+      <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+
+      <!-- Telefone -->
+      <label for="telefone"><i class="fas fa-phone-alt"></i> Telefone</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="Seu telefone" required>
+
+      <!-- Mensagem -->
+      <label for="mensagem"><i class="fas fa-comment-alt"></i> Mensagem</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
+
+      <!-- Botão -->
+      <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+    </form>
+  </div>
+</section>
+
+
+  <section class="faq container">
+    <h2>Perguntas <span class="destaque">Frequentes</span></h2>
+    <div class="faq-item">
+      <button onclick="toggleFAQ(0)">Quais os benefícios do Programa Jovem Aprendiz?</button>
+      <div>Oferecemos integração com a equipe, formação profissional, desenvolvimento comportamental e oportunidades reais de crescimento.</div>
+    </div>
+    <div class="faq-item">
+      <button onclick="toggleFAQ(1)">Como as empresas se beneficiam?</button>
+      <div>Redução de custos, retenção de talentos, incentivos fiscais e uma cultura organizacional mais humana e inovadora.</div>
+    </div>
+    <div class="faq-item">
+      <button onclick="toggleFAQ(2)">Qual o diferencial dos nossos treinamentos?</button>
+      <div>São práticos, personalizados, com foco em resultados concretos e alinhamento com as metas estratégicas da sua organização.</div>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES MOVIDA PARA O FINAL -->
+  <section id="avaliacoes" class="avaliacoes">
+    <h2>Avaliações</h2>
+    <div class="marquee-h-container" onmouseover="pauseMarquee()" onmouseout="resumeMarquee()">
+      <div class="marquee-h" id="marquee">
+        <div class="avaliacao-card"><div class="stars">★★★★★</div><p>“Equipe dedicada e soluções modernas. Reduzimos a rotatividade em 30%.”</p></div>
+        <div class="avaliacao-card"><div class="stars">★★★★☆</div><p>“O sistema de engajamento mudou o clima da equipe para melhor!”</p></div>
+        <div class="avaliacao-card"><div class="stars">★★★★★</div><p>“Soluções práticas e adaptáveis. Excelente apoio para jovens talentos.”</p></div>
+        <div class="avaliacao-card"><div class="stars">★★★★☆</div><p>“Nos ajudaram a estruturar um plano de desenvolvimento interno que realmente funciona!”</p></div>
+        <div class="avaliacao-card"><div class="stars">★★★★★</div><p>“A parceria com a Equipe+ trouxe inovação e clareza nos processos de RH.”</p></div>
+        <div class="avaliacao-card"><div class="stars">★★★☆☆</div><p>“Bom suporte e ótimas ferramentas. Poderia ter mais workshops presenciais.”</p></div>
+        <div class="avaliacao-card"><div class="stars">★★★★★</div><p>“Excelente programa para inclusão de jovens. Transformador para nossa cultura.”</p></div>
+        <div class="avaliacao-card"><div class="stars">★★★★☆</div><p>“Ferramentas simples, mas com resultados práticos e mensuráveis. Recomendo.”</p></div>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- ESTILO AJUSTADO -->
+<style>
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  nav a:hover,
+nav a:focus {
+  color: #ffff66;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+  .destaque {
+    background: linear-gradient(to right, #00c3ff, #004080);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+  }
+
+  section h2, h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .treinamento-conteudo {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .treinamento-item {
+    width: 350px;
+    text-align: center;
+  }
+
+  .treinamento-item img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .treinamento-item img:hover {
+    transform: scale(1.05);
+  }
+
+  .treinamento-item p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 10px;
+  }
+
+  .parcerias-imagens {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .parcerias-imagens {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.parcerias-imagens img {
+  width: 200px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  animation: marquee-scroll 30s linear infinite; /* Animação adicionada */
+}
+
+.parcerias-imagens img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .parcerias-imagens img {
+    width: 150px; /* Reduz o tamanho das imagens em dispositivos móveis */
+  }
+  .parcerias-imagens {
+    animation-duration: 40s; /* Duração da animação aumenta para telas pequenas */
+  }
+}
+
+/* Animação para a rotação das imagens */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+  .parcerias img {
+    width: 200px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  .btn-show {
+  background: linear-gradient(to right, #004080, #00c3ff);
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-show:hover,
+.btn-show:focus {
+  background: linear-gradient(to right, #002b5c, #007acc);
+  transform: scale(1.05);
+}
+
+
+  .parcerias img:hover {
+    transform: scale(1.05);
+  }
+
+  .faq-item {
+    max-width: 800px;
+    margin: 0 auto 20px;
+  }
+
+  .faq-item button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 8px;
+  }
+
+  .faq-item button:hover {
+    background-color: #005bb5;
+  }
+
+  .faq-item div {
+    display: none;
+    padding: 15px;
+    background: #f1f1f1;
+    border-radius: 0 0 8px 8px;
+    font-size: 1.05rem;
+    color: #444;
+  }
+
+  footer {
+    text-align: center;
+    background: #002b5c;
+    color: white;
+    padding: 20px;
+    font-size: 1rem;
+    margin-top: 50px;
+  }
+</style>
+
+<!-- SCRIPT FAQ -->
+<script>
+  function toggleFAQ(index) {
+    const faqs = document.querySelectorAll('.faq-item div');
+    const atual = faqs[index].style.display === 'block';
+    faqs.forEach(f => f.style.display = 'none');
+    if (!atual) faqs[index].style.display = 'block';
+  }
+  
+</script>
+  <footer>
+    <p>Equipe+ &copy; 2025 | Projeto Integrador - Gestão Estratégica de Pessoas</p>
+  </footer>
+</body>
+<script>
+  const marquee = document.getElementById("marquee");
+  function pauseMarquee() {
+    marquee.style.animationPlayState = "paused";
+  }
+  function resumeMarquee() {
+    marquee.style.animationPlayState = "running";
+  }
+</script>
+
+
+</html>
