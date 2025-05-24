@@ -189,7 +189,18 @@
       gap: 2rem;
       justify-content: center;
     }
+.parceiros-container {
+  overflow-x: auto;        /* permite rolar na horizontal */
+  overflow-y: hidden;      /* impede a rolagem vertical */
+  white-space: nowrap;     /* impede quebra de linha */
+  -webkit-overflow-scrolling: touch; /* rolagem suave no iOS */
+}
 
+.logos {
+  display: inline-flex;    /* mantém os logos lado a lado */
+  gap: 20px;               /* espaçamento entre logos */
+  align-items: center;
+}
     .card {
       background: white;
       border-radius: 10px;
